@@ -1,0 +1,32 @@
+// Main Color Palette
+$color-purple-dark: #7400b8;
+$color-purple: #6930c3;
+$color-indigo: #5e60ce;
+$color-blue: #5390d9;
+$color-blue-light: #4ea8de;
+$color-azure: #48bfe3;
+$color-cyan: #56cfe1;
+$color-cyan-light: #64dfdf;
+$color-aqua: #72efdd;
+$color-aqua-light: #80ffdb;
+
+// Semantic Colors
+$color-primary: $color-purple;
+$color-secondary: $color-blue;
+$color-accent: $color-cyan;
+$color-background: #ffffff;
+$color-text: #2d3748;
+$color-text-light: #718096;
+
+// Typography
+$font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-size-base: 16px;
+$font-size-h1: 3.5rem;
+$font-size-h2: 2.5rem;
+$font-size-h3: 2rem;
+
+// Spacing
+$spacing-base: 8px;
+$spacing-md: $spacing-base * 2;
+$spacing-lg: $spacing-base * 3;
+$spacing-xl: $spacing-base * 4;
