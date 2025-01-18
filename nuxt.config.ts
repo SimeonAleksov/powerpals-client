@@ -1,5 +1,6 @@
 // nuxt.config.ts
 export default defineNuxtConfig({
+ ssr: true,
   srcDir: 'src',
   css: ['~/assets/styles/main.scss'],
   vite: {
