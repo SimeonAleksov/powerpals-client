@@ -7,44 +7,27 @@
         From casual gaming to competitive ranks - we've got you covered.
       </p>
       <div class="landing__cta">
-        <button class="button button--primary">Join Early Access</button>
+        <Button variant="primary" size="lg">Join Early Access</Button>
       </div>
     </div>
 
     <div class="landing__services">
       <h2 class="landing__section-title">Gaming Services</h2>
       <div class="services-grid">
-        <div class="service-card">
-          <h3 class="service-card__title">Pro Coaching</h3>
-          <p class="service-card__description">
-            One-on-one sessions with top-ranked players. Learn strategies, improve mechanics,
-            and master your favorite games.
-          </p>
-        </div>
-        <div class="service-card">
-          <h3 class="service-card__title">Achievement Hunting</h3>
-          <p class="service-card__description">
-            Unlock those hard-to-get achievements with help from experienced completionists.
-          </p>
-        </div>
-        <div class="service-card">
-          <h3 class="service-card__title">Rank Boosting</h3>
-          <p class="service-card__description">
-            Reach your desired competitive rank with our skilled boosters. Safe and reliable.
-          </p>
-        </div>
-        <div class="service-card">
-          <h3 class="service-card__title">Game Companions</h3>
-          <p class="service-card__description">
-            Find friendly players to team up with for better gaming experience.
-          </p>
-        </div>
+        <Card v-for="service in services"
+              :key="service.title"
+              hover
+              class="service-card"
+        >
+          <h3 class="service-card__title">{{ service.title }}</h3>
+          <p class="service-card__description">{{ service.description }}</p>
+        </Card>
       </div>
     </div>
 
     <div class="landing__providers">
       <h2 class="landing__section-title">Become a Provider</h2>
-      <div class="provider-info">
+      <Card variant="flat" class="provider-info">
         <div class="provider-info__content">
           <h3>Turn Your Gaming Skills Into Income</h3>
           <ul class="provider-info__list">
@@ -53,23 +36,47 @@
             <li>Access a global gaming community</li>
             <li>Secure payments and support</li>
           </ul>
-          <button class="button button--secondary">Apply as Provider</button>
+          <Button variant="secondary" size="lg">Apply as Provider</Button>
         </div>
-      </div>
+      </Card>
     </div>
 
     <div class="landing__signup">
-      <div class="signup-form">
+      <Card class="signup-form">
         <h2>Get Early Access</h2>
         <p>Be the first to know when PowerPals launches. Early members get special perks!</p>
         <div class="signup-form__input-group">
           <input type="email" placeholder="Enter your email" class="signup-form__input">
-          <button class="button button--primary">Join Waitlist</button>
+          <Button variant="primary">Join Waitlist</Button>
         </div>
-      </div>
+      </Card>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import Button from '@/components/ui/Button.vue'
+import Card from '@/components/ui/Card.vue'
+
+const services = [
+  {
+    title: 'Pro Coaching',
+    description: 'One-on-one sessions with top-ranked players. Learn strategies, improve mechanics, and master your favorite games.'
+  },
+  {
+    title: 'Achievement Hunting',
+    description: 'Unlock those hard-to-get achievements with help from experienced completionists.'
+  },
+  {
+    title: 'Rank Boosting',
+    description: 'Reach your desired competitive rank with our skilled boosters. Safe and reliable.'
+  },
+  {
+    title: 'Game Companions',
+    description: 'Find friendly players to team up with for better gaming experience.'
+  }
+]
+</script>
 
 <style lang="scss" scoped>
 .landing {
@@ -122,17 +129,6 @@
 }
 
 .service-card {
-  background: $color-background;
-  padding: $spacing-xl;
-  border-radius: 16px;
-  box-shadow: 0 4px 6px rgba($color-purple-dark, 0.1);
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba($color-purple-dark, 0.15);
-  }
-
   &__title {
     color: $color-primary;
     font-size: 1.5rem;
@@ -147,8 +143,6 @@
 
 .provider-info {
   background: linear-gradient(135deg, $color-purple-dark, $color-blue);
-  padding: $spacing-xl;
-  border-radius: 16px;
   color: $color-background;
 
   &__content {
@@ -179,10 +173,6 @@
   text-align: center;
   max-width: 600px;
   margin: 0 auto;
-  padding: $spacing-xl;
-  background: $color-background;
-  border-radius: 16px;
-  box-shadow: 0 4px 6px rgba($color-purple-dark, 0.1);
 
   h2 {
     color: $color-primary;
@@ -211,36 +201,6 @@
     &:focus {
       outline: none;
       border-color: $color-primary;
-    }
-  }
-}
-
-.button {
-  padding: $spacing-md $spacing-xl;
-  border-radius: 8px;
-  font-size: 1.125rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-
-  &--primary {
-    background: linear-gradient(135deg, $color-purple-dark, $color-blue);
-    color: $color-background;
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba($color-purple-dark, 0.3);
-    }
-  }
-
-  &--secondary {
-    background: rgba($color-background, 0.1);
-    color: $color-background;
-    border: 2px solid $color-background;
-
-    &:hover {
-      background: rgba($color-background, 0.2);
-      transform: translateY(-2px);
     }
   }
 }

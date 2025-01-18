@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   srcDir: 'src',
   css: ['~/assets/styles/main.scss'],
-vite: {
+  vite: {
     css: {
       preprocessorOptions: {
         scss: {
@@ -14,12 +14,11 @@ vite: {
   modules: [
     '@nuxtjs/color-mode'
   ],
-
   colorMode: {
     classSuffix: '',
-    fallback: 'light'
+    preference: 'dark', // Set dark as default
+    fallback: 'dark'
   },
-
   app: {
     head: {
       title: 'PowerPals',

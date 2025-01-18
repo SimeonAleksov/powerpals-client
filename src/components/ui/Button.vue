@@ -26,13 +26,15 @@ interface Props {
   size?: 'sm' | 'md' | 'lg'
   loading?: boolean
   disabled?: boolean
+  block?: boolean
 }
 
 withDefaults(defineProps<Props>(), {
   variant: 'primary',
   size: 'md',
   loading: false,
-  disabled: false
+  disabled: false,
+  block: false
 })
 
 defineEmits(['click'])
@@ -48,41 +50,70 @@ defineEmits(['click'])
   transition: all 0.3s ease;
   cursor: pointer;
   border: none;
-  min-width: 120px; // Added minimum width for consistency
+  min-width: 120px;
+
+  &--block {
+    width: 100%;
+  }
 
   &--primary {
     background: linear-gradient(135deg, $color-purple-dark, $color-blue);
     color: $color-background;
+
     &:hover:not(:disabled) {
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba($color-purple-dark, 0.3);
+    }
+
+    :root.dark & {
+      box-shadow: 0 4px 12px rgba($color-purple-dark, 0.5);
     }
   }
 
   &--secondary {
     background: $color-cyan;
     color: $color-background;
+
     &:hover:not(:disabled) {
-      background: darken($color-cyan, 5%);
       transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($color-cyan, 0.3);
     }
   }
 
   &--outline {
     background: transparent;
     border: 2px solid $color-primary;
-    color: $color-primary;
+    color: $color-text;
+
     &:hover:not(:disabled) {
       background: rgba($color-primary, 0.1);
+    }
+
+    :root.dark & {
+      border-color: $color-cyan;
+      color: $color-cyan;
+
+      &:hover:not(:disabled) {
+        background: rgba($color-cyan, 0.1);
+      }
     }
   }
 
   &--text {
     background: transparent;
-    color: $color-primary;
-    min-width: auto; // Override min-width for text variant
+    color: $color-text;
+    min-width: auto;
+
     &:hover:not(:disabled) {
-      background: rgba($color-primary, 0.1);
+      background: rgba($color-text, 0.1);
+    }
+
+    :root.dark & {
+      color: $color-text-light;
+
+      &:hover:not(:disabled) {
+        background: rgba($color-text-light, 0.1);
+      }
     }
   }
 
@@ -105,8 +136,13 @@ defineEmits(['click'])
   }
 
   &:disabled {
-    opacity: 0.6;
+    opacity: 0.5;
     cursor: not-allowed;
+    background: $color-background-secondary;
+    color: $color-text-light;
+    border: none;
+    box-shadow: none;
+    transform: none;
   }
 
   &__loader {
@@ -119,7 +155,7 @@ defineEmits(['click'])
     display: flex;
     align-items: center;
     gap: 8px;
-    white-space: nowrap; // Prevent text wrapping
+    white-space: nowrap;
   }
 
   &__loader-dot {

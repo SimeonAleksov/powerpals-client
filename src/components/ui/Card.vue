@@ -39,24 +39,41 @@ withDefaults(defineProps<Props>(), {
 
   &--default {
     box-shadow: 0 4px 6px rgba($color-purple-dark, 0.1);
+
+    :root.dark & {
+      background: $color-background-secondary;
+      box-shadow: 0 4px 6px rgba($color-purple-dark, 0.2);
+    }
   }
 
   &--outline {
-    border: 2px solid rgba($color-primary, 0.1);
+    border: 2px solid $color-border;
+
+    :root.dark & {
+      border-color: rgba($color-cyan, 0.2);
+    }
   }
 
   &--flat {
-    background: rgba($color-purple-dark, 0.05);
+    background: $color-background-secondary;
+
+    :root.dark & {
+      background: rgba($color-purple-dark, 0.2);
+    }
   }
 
   &--hover:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba($color-purple-dark, 0.15);
+
+    :root.dark & {
+      box-shadow: 0 8px 15px rgba($color-purple-dark, 0.3);
+    }
   }
 
   &__header {
     padding: $spacing-lg;
-    border-bottom: 1px solid rgba($color-primary, 0.1);
+    border-bottom: 1px solid $color-border;
   }
 
   &__body {
@@ -65,7 +82,7 @@ withDefaults(defineProps<Props>(), {
 
   &__footer {
     padding: $spacing-lg;
-    border-top: 1px solid rgba($color-primary, 0.1);
+    border-top: 1px solid $color-border;
   }
 }
 </style>
