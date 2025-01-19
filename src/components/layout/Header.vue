@@ -23,7 +23,9 @@
 
         <!-- Desktop Actions -->
         <div class="header__buttons header__buttons--desktop">
-          <Button variant="text" size="sm">Sign In</Button>
+    <Button variant="text" size="sm" @click="showSignIn = true">
+      Sign In
+    </Button>
           <Button variant="primary" size="sm">Get Started</Button>
         </div>
 
@@ -55,13 +57,17 @@
       </div>
     </div>
   </header>
+  <SignInModal v-model="showSignIn" />
 </template>
 
 <script setup lang="ts">
 import Button from '@/components/ui/Button.vue'
 const { isDark, toggleTheme } = useTheme()
+import { ref } from 'vue'
+import SignInModal from '@/components/auth/SignInModal.vue'
 
 const isMobileMenuOpen = ref(false)
+const showSignIn = ref(false)
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
