@@ -108,7 +108,9 @@
         </button>
       </p>
     </div>
+
   </Modal>
+  <RegisterModal v-model="showRegister" />
 </template>
 
 <script setup lang="ts">
@@ -117,6 +119,7 @@ import { Mail, Lock, Eye, EyeOff } from 'lucide-vue-next'
 import Modal from '@/components/ui/Modal.vue'
 import Input from '@/components/ui/Input.vue'
 import Button from '@/components/ui/Button.vue'
+import RegisterModal from '@/components/auth/RegisterModal.vue'
 
 interface Props {
   modelValue: boolean
@@ -136,6 +139,7 @@ const errors = ref({
   email: '',
   password: ''
 })
+const showRegister = ref(false)
 
 // Handlers
 const handleSubmit = async () => {
@@ -162,6 +166,7 @@ const handleForgotPassword = () => {
 
 const handleCreateAccount = () => {
   // Handle create account flow
+  showRegister.value = true
   console.log('Create account')
 }
 </script>
