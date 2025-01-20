@@ -69,6 +69,15 @@ $spacing-xl: 32px;
 $spacing-2xl: 48px;
 $spacing-3xl: 64px;
 
+// Spacing
+$spacing-base: 8px;
+$spacing-xs: 4px;
+$spacing-sm: $spacing-base;
+$spacing-md: $spacing-base * 2;
+$spacing-lg: $spacing-base * 3;
+$spacing-xl: $spacing-base * 4;
+$spacing-2xl: $spacing-base * 6;
+$spacing-3xl: $spacing-base * 8;
 // Border radius
 $border-radius-sm: 4px;
 $border-radius-md: 8px;

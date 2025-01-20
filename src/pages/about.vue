@@ -152,7 +152,7 @@ const values = [
 
 const team = [
   {
-    name: 'Simeon Aleksov',
+    name: 'Sarah Chen',
     role: 'Chief Executive Officer',
     bio: 'Former pro gamer turned entrepreneur, passionate about creating opportunities in gaming.',
     avatar: '/api/placeholder/150/150'
